@@ -1,5 +1,6 @@
 //const imageUpload = document.getElementById('imageUpload')
 const video = document.getElementById('video')
+const nombre = document.getElementById('nombre')
 
 Promise.all([
   faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
@@ -57,7 +58,8 @@ video.addEventListener('play', async () => {
       // caja
       const box = resizedDetections[i].detection.box
       // dibujo de caja que concuerde con la detección
-      const drawBox = new faceapi.draw.DrawBox(box, { label: result.toString() })
+      const drawBox = new faceapi.draw.DrawBox(box, { label: result.label.toString() })
+      nombre.innerText = "The face is " + result.label.toString()
 
       // lo pinta
       drawBox.draw(canvas)
