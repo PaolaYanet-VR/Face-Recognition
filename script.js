@@ -40,7 +40,7 @@ video.addEventListener('play', async () => {
   setInterval(async () => {
 
     // Variable de las cajas de detección de caras
-    const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
+    const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceDescriptors()
     //const detections = await faceapi.detectAllFaces(video).withFaceLandmarks().withFaceDescriptors()
 
     // escala las detecciones para que concuerden con la imagen
