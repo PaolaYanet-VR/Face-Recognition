@@ -49,6 +49,9 @@ video.addEventListener('play', async () => {
     // Variable donde almacena la cara detectada con el nombre
     const results = resizedDetections.map(d => faceMatcher.findBestMatch(d.descriptor))
 
+    //limpia el canvas antes de poner la deteción
+    canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
+
     // forEach de los resultados que encontró en la foto dibujando cada caja con su nombre
     results.forEach((result, i) => {
       // caja
